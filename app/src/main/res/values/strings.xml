@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EsimeneKotlinisse</string>
+    <string name="backup_text">Siia tuleb backup</string>
+    <string name="editable_text">Kirjuta mis tahad</string>
+    <string name="display_edit_text">Siia tuleb mis tahad!</string>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>
