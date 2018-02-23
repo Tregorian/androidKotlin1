@@ -20,29 +20,13 @@ class Main2Activity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "It's ya boiii", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
-    }
 
-    fun showRandomNumber() {
-        // Get the count from the intent extras
         val vaartus = intent.getStringExtra(uusTekst)
-
-        // Generate the random number
-        //val random = Random()
-        //var randomInt = 0
-        //// Add one because the bound is exclusive
-        //if (count > 0) {
-        //    // Add one because the bound is exclusive
-        //    randomInt = random.nextInt(count + 1)
-        //}
-
-        // Display the random number.
         uueIntendiTekst.text = vaartus
-
-        // Substitute the max value into the string resource
-        // for the heading, and update the heading
-        //textview_label.text = getString(R.string.random_heading, count)
     }
+
+
 }

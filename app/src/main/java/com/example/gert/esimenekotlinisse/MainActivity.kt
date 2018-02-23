@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -11,11 +12,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d("MainActivity", "onCreate")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
     }
 
     override fun onDestroy() {
+        Log.d("MainActivity", "onDestroy")
         super.onDestroy()
     }
 
@@ -28,25 +32,30 @@ class MainActivity : AppCompatActivity() {
     fun editText(view:View){
         val note = editText.text.toString()
         displayTextView.text = note
+        Log.d("MainActivity", "Teksti muutmis nuppu vajutati")
 
     }
 
-    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
-        super.onSaveInstanceState(outState, outPersistentState)
+    override fun onSaveInstanceState(outState: Bundle?) {
+        Log.d("MainActivity", "onSaveInstanceState")
+        super.onSaveInstanceState(outState)
         val backup = editText.text
         backupTxtView.text = backup
         outState?.putCharSequence("salvestatudBackupString", backup)
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onRestoreInstanceState(savedInstanceState, persistentState)
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        Log.d("MainActivity", "onRestoreInstance")
+        super.onRestoreInstanceState(savedInstanceState)
         val backup = savedInstanceState?.getCharSequence("salvestatudBackupString")
-        editText.setText(backup)
+        backupTxtView.text = backup
     }
     fun newActivityBtnClick(view: View) {
+        Log.d("MainActivity", "uue activity nuppu vajutati")
         val uueActivityIntent = Intent(this, Main2Activity::class.java)
         val backup = editText.text.toString()
         uueActivityIntent.putExtra(Main2Activity.uusTekst, backup)
         startActivity(uueActivityIntent)
     }
+
 }
